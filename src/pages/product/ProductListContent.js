@@ -68,7 +68,7 @@ const ProductListViewSettingBar = ({
                 <div className="lg:block products-filter-name">View:</div>
                 <div
                   id="grid-view"
-                  className="cursor-pointer hover:text-yellow"
+                  className="cursor-pointer hover:text-turquoise"
                   onClick={() => changeDisplayType(true)}
                 >
                   <IconContext.Provider

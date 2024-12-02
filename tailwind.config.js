@@ -31,6 +31,7 @@ module.exports = {
         herringSilver: '#C4C5CC',
         flamingo: '#EB5757',
         dodgerBlue: '#2F80ED',
+        turquoise: '#00A97A',
       },
     },
   },

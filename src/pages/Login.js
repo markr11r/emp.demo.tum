@@ -170,7 +170,7 @@ const Login = () => {
             </LayoutBetween>
             <Box className="w-full !pt-8">
               <button
-                className="w-full cta-button bg-yellow h-12"
+                className="w-full cta-button bg-turquoise h-12"
                 type="submit"
               >
                 {loading ? <CircularProgress color="secondary" /> : 'LOG IN'}
@@ -237,7 +237,7 @@ const Login = () => {
                 Don't have an account?
               </span>
               <Link to={signupUrl()}>
-                <span className="pl-2 font-semibold hover:cursor-pointer text-[146x]/[24px] font-medium text-dodgerBlue hover:text-yellow">
+                <span className="pl-2 font-semibold hover:cursor-pointer text-[146x]/[24px] font-medium text-dodgerBlue hover:text-turquoise">
                   Sign Up
                 </span>
               </Link>
