@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 import { pageMenuSelector } from '../../redux/slices/pageReducer'
 import './topbar.css'
 import { addTenantToUrl, homeUrl } from '../../services/service.config'
-import AlgoliaSearchbar from '../AlgoliaSearchbar'
 import { useContentful } from '../../context/contentful-provider'
 import {Logo} from "../Logo";
 import { APPLICATION_ID } from '../../constants/localstorage'
@@ -152,7 +151,7 @@ const TopNav = ({ title }) => {
               onMouseOver={() => setShowMegaMenuContent(false)}
             >
               <>
-                {localStorage.getItem(APPLICATION_ID) && (<AlgoliaSearchbar />)
+                {localStorage.getItem(APPLICATION_ID) && (<></>)
                 }
               </>
             </div>
