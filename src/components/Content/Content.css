@@ -1,0 +1,29 @@
+.home_content {
+    /* background: url('../../assets/demo/wbh-banner.png') no-repeat; */
+    background-size: cover;
+    margin-top: 5rem;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;  
+  }
+
+  .home_content_block {
+    display: block;
+  }
+
+  .home_content_block img {
+    margin-top: 60px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .content {
+    /* background: url('../../assets/demo/wbh-banner.png') no-repeat; */
+    width: 100%;
+    margin-top: 9rem;
+    background-position: center;
+  }

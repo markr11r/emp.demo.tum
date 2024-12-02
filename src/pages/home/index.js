@@ -5,12 +5,14 @@ import Category from './Category'
 import Product from './Product'
 import Subscribe from './Subscribe'
 import Layout from '../Layout'
+import Content from '../../components/Content/Content'
+import { useSites } from 'context/sites-provider'
 
 const Home = () => {
+  const { currentSite } = useSites()
   return (
     <Layout title={'home'}>
-      <About />
-      <Service />
+      <Content site={currentSite} />
       <Category />
       <Subscribe />
     </Layout>

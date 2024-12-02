@@ -11,8 +11,11 @@ import Logo from "../Content/Logo";
 import { APPLICATION_ID } from '../../constants/localstorage'
 import AlgoliaInstantSearch from '../AlgoliaInstantSearch/AlgoliaInstantSearch';
 import { useLocation } from "react-router-dom";
+import { useLanguage } from 'context/language-provider'
+import TopNavigation from 'components/Content/TopNavigation'
 
 const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
+  const { currentLanguage } = useLanguage()
   const [subMenuItems, setSubMenuItems] = useState([])
   const [showMegaMenuRightContent, setShowMegaMenuRightContent] =
     useState(false)
@@ -30,7 +33,7 @@ const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
   const { fields } = useContentful()
   return (
     <div id="topbar-buttons" className="dropdown flex text-base">
-      {menuList.map((item, index) => (
+      {menuList.map((item, index) =>  index === 0 ? (
         <button
           key={index}
           className="mega_menu_dropbtn"
@@ -41,20 +44,20 @@ const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
           }
         >
           <Link to={!item.items.length ? addTenantToUrl(item.url) : homeUrl}>
-            <div>
+          <div className="text-demoGrayDarkest tracking-tight text-sm mt-[3px] uppercase">
               {' '}
               {item.contentfulFieldName
                 ? fields[item.contentfulFieldName]
                 : item.title}
             </div>
           </Link>
-
-			<HiChevronDown size={20}
+  			<HiChevronDown size={20}
             className={item.items.length ? 'ml-2 mt-1 h-5 w-5' : 'hidden'}
             aria-hidden="true"
           />
         </button>
-      ))}
+      ): <></> )}
+      <TopNavigation locale={currentLanguage} />
       {showMegaMenuContent ? (
         <div
           className="header-mega_dropdown-content"
