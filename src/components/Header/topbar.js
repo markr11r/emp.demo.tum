@@ -7,9 +7,10 @@ import { pageMenuSelector } from '../../redux/slices/pageReducer'
 import './topbar.css'
 import { addTenantToUrl, homeUrl } from '../../services/service.config'
 import { useContentful } from '../../context/contentful-provider'
-import {Logo} from "../Logo";
+import Logo from "../Content/Logo";
 import { APPLICATION_ID } from '../../constants/localstorage'
 import AlgoliaInstantSearch from '../AlgoliaInstantSearch/AlgoliaInstantSearch';
+import { useLocation } from "react-router-dom";
 
 const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
   const [subMenuItems, setSubMenuItems] = useState([])
@@ -121,6 +122,8 @@ const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
 const TopNav = ({ title }) => {
   const nav_title_condition = title !== '' && title !== 'home' ? true : false
   const [showMegaMenuContent, setShowMegaMenuContent] = useState(false)
+  const location = useLocation()
+  const isSearchPage = location.pathname.includes("/search")
 
   return (
     <div
@@ -140,7 +143,7 @@ const TopNav = ({ title }) => {
           }}
         >
           <div className="flex justify-between w-full h-10">
-            <Logo onMouseOver={() => setShowMegaMenuContent(false)} />
+            <Logo />
 
             <MegaNav
               showMegaMenuContent={showMegaMenuContent}
@@ -152,7 +155,7 @@ const TopNav = ({ title }) => {
               onMouseOver={() => setShowMegaMenuContent(false)}
             >
               <>
-                {localStorage.getItem(APPLICATION_ID) && (<AlgoliaInstantSearch />)
+                {localStorage.getItem(APPLICATION_ID) && !isSearchPage && (<AlgoliaInstantSearch />)
                 }
               </>
             </div>
