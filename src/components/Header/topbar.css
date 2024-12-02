@@ -71,7 +71,7 @@
   clear: both;
 }
 
-
+/*
 input[type='search'] {
   background: transparent;
   margin: 0;
@@ -82,6 +82,7 @@ input[type='search'] {
   border-radius: inherit;
   text-indent: 20px;
 }
+*/
 
 input[type='search']::placeholder {
   color: white;

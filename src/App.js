@@ -7,6 +7,7 @@ import Home from './pages/home'
 import Cart from './pages/cart'
 import QuickOrder from './pages/quickorder'
 import AboutUs from './pages/aboutus'
+import Search from './pages/search'
 import Checkout from './pages/checkout'
 import ProductList, { ProductDetails } from './pages/product'
 import Account from './pages/account'
@@ -205,6 +206,7 @@ function App() {
           </Route>
           <Route path="quick_order" element={<QuickOrder />} />
           <Route path="aboutus" element={<AboutUs />} />
+          <Route path="search" element={<Search />} />
           <Route path="*" element={<NoPage />} />
         </Route>
         <Route path="*" element={<InvalidTenant />} />

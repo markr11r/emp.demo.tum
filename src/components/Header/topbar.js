@@ -9,6 +9,7 @@ import { addTenantToUrl, homeUrl } from '../../services/service.config'
 import { useContentful } from '../../context/contentful-provider'
 import {Logo} from "../Logo";
 import { APPLICATION_ID } from '../../constants/localstorage'
+import AlgoliaInstantSearch from '../AlgoliaInstantSearch/AlgoliaInstantSearch';
 
 const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
   const [subMenuItems, setSubMenuItems] = useState([])
@@ -151,7 +152,7 @@ const TopNav = ({ title }) => {
               onMouseOver={() => setShowMegaMenuContent(false)}
             >
               <>
-                {localStorage.getItem(APPLICATION_ID) && (<></>)
+                {localStorage.getItem(APPLICATION_ID) && (<AlgoliaInstantSearch />)
                 }
               </>
             </div>
