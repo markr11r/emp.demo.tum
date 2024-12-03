@@ -52,7 +52,7 @@ const Hit = ({ hit }) => {
     const tenant = localStorage.getItem(TENANT)
     console.log(activeCurrency)
 
-    const priceEntry = hit.prices.find((entry) => entry.currency === "EUR");
+    const priceEntry = hit.prices?.find((entry) => entry.currency === "EUR");
     const price = priceEntry?.tierValues?.[0]?.priceValue || "Price not available";
     const currency = activeCurrency?.symbol || "Currency not available";
     const pdpUrl = '/' + tenant + '/product/details/' + extractProductIDfromObjectID(hit.objectID)
