@@ -1,0 +1,47 @@
+/* Container for the list */
+.characteristics-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    background-color: #ffffff; /* White background */
+    /*border-radius: 8px; /* Smooth rounded corners */
+    /*box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Modern shadow for depth */
+    overflow: hidden; /* Prevent content overflow on rounded corners */
+}
+
+/* Each list item */
+.characteristics-list-item {
+    display: flex; /* Align bullet and text horizontally */
+    align-items: center; /* Center bullet with text vertically */
+    gap: 10px; /* Space between bullet and text */
+    padding: 15px 0px; /* Add space inside each item */
+    font-size: 16px; /* Adjust font size for readability */
+    color: #333; /* Dark text color */
+    border-bottom: 1px solid #f0f0f0; /* Light divider between items */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Last item (no border at the bottom) */
+.characteristics-list-item:last-child {
+    border-bottom: none;
+}
+
+.characteristics-list-item::before {
+    content: "*"; /* Use a plus sign or any desired character */
+    font-size: 18px; /* Slightly larger than text */
+    color: #0078d4; /* Modern blue color */
+    font-weight: bold; /* Make it stand out */
+    flex-shrink: 0; /* Prevent the '+' sign from shrinking */
+    padding-left: 20px;
+}
+
+/* Hover effect (only on background) */
+.characteristics-list-item-old:hover {
+    background-color: #f9f9f9; /* Light gray background on hover */
+    cursor: pointer; /* Indicate interactivity */
+}
+
+/* Disable text hover effects */
+.characteristics-list-item span {
+    pointer-events: none; /* Prevent hover effects on text */
+}

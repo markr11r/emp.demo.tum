@@ -38,8 +38,12 @@ import priceService from '../../services/product/price.service'
 import { useNavigate } from 'react-router-dom'
 import { ProductConfiguration } from './ProductConfiguration'
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import ProductCharacteristics from '../../components/ProductCharacteristics/ProductCharacteristics'
+import ProductBasicCharacteristics from '../../components/ProductCharacteristics/ProductBasicCharacteristics'
 
 const ProductContext = createContext()
+
+
 
 const Bold = ({ children }) => {
   return <div className="font-bold">{children}</div>
@@ -415,8 +419,8 @@ const ProductContent = ({ product, brand, labels }) => {
                 <>
                   <div>Brands</div>
                   <img
-                    src={brand.image}
-                    alt={brand.name}
+                    src={brand?.image}
+                    alt={brand?.name}
                     className="w-fit h-8"
                   />
                 </>
@@ -425,12 +429,12 @@ const ProductContent = ({ product, brand, labels }) => {
 
             <div className="flex flex-col">
               <div className="flex gap-2">
-                {labels && labels.length > 0 && <div>Labels</div>}
-                {labels.map((label) => {
+                {labels && labels?.length > 0 && <div>Labels</div>}
+                {labels?.map((label) => {
                   return (
                     <img
-                      src={label.image}
-                      alt={label.name}
+                      src={label?.image}
+                      alt={label?.name}
                       className="w-fit h-8"
                     />
                   )
@@ -495,16 +499,20 @@ const ProductDetailsTabContent = ({ product }) => {
     }
     return res
   }
+  const { currentLanguage } = useLanguage()
   const getAttributes = (items) => {
     let res = []
     Object.keys(items).forEach((key) => {
       let value = items[key]
       let caption = getFeatureName(key)
-      if (typeof value !== 'object') value = items[key]
+      console.log('CAPTION: ' + caption)
+      if (caption === 'Characteristics') {caption = <ProductCharacteristics data={items} language={currentLanguage} />}
+      else if (caption === 'Promotions' || caption === 'Campaigns') { caption = ' ' }
+      else if (typeof value !== 'object') caption = caption = <ProductBasicCharacteristics caption={caption} value={value} />
       else if ('value' in value && 'uom' in value)
         value = value['value'] + ' ' + value['uom']
       else value = ''
-      res.push({ property: caption, value: value })
+      res.push({ property: caption, value: ' ' })
     })
     return res
   }

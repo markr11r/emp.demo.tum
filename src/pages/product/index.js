@@ -15,8 +15,6 @@ import {
 import { useProducts } from '../../services/product/useProducts'
 import { useSites } from '../../context/sites-provider'
 import { useLanguage } from '../../context/language-provider'
-import { getBrand } from 'services/product/brand.service'
-import { getLabel } from 'services/product/labels'
 import { useCurrency } from 'context/currency-context'
 
 const ProductList = () => {
@@ -45,25 +43,25 @@ export const ProductDetails = () => {
   useEffect(() => {
     ;(async () => {
       if (!product.data) return
-      const brandId = product.data.mixins.productCustomAttributes.brand
-      const brand = await getBrand(brandId)
-      setBrand(brand)
+      //const brandId = product.data.mixins.productCustomAttributes.brand
+      //const brand = await getBrand(brandId)
+      //setBrand(brand)
     })()
   }, [product.data])
 
   useEffect(() => {
     ;(async () => {
       if (!product.data) return
-      const lableIds = product.data.mixins.productCustomAttributes.labels
-      if (lableIds && lableIds.length > 0) {
-        const labels = await Promise.all(
-          lableIds.map(async (labelId) => {
-            const label = await getLabel(labelId)
-            return label
-          })
-        )
-        setLabels(labels)
-      }
+      //const lableIds = product.data.mixins.productCustomAttributes.labels
+      //if (lableIds && lableIds.length > 0) {
+        //const labels = await Promise.all(
+          //lableIds.map(async (labelId) => {
+            //const label = await getLabel(labelId)
+            //return label
+          //})
+        //)
+        //setLabels(labels)
+      //}
     })()
   }, [product.data])
 
@@ -108,6 +106,7 @@ export const ProductDetails = () => {
           productId
         )
         if (category.length > 0) {
+          return
           let { data: categories } = await getAllParentCategories(
             category[0]['id']
           )
