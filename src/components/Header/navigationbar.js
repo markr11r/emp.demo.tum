@@ -29,6 +29,7 @@ import { useQuotes } from 'context/quotes-context'
 import { useContentful } from '../../context/contentful-provider'
 import { useCart } from 'context/cart-provider'
 import { useCurrency } from 'context/currency-context'
+import WebsocketListener from 'components/Websocket/Websocket';
 
 const Navbar = () => {
   const { userTenant: tenant } = useAuth()
@@ -50,6 +51,7 @@ const Navbar = () => {
   const currencyChangeHandler = async (value, site) => {
     updateCurrency(value, site)
   }
+  //console.log('CART: ' + cartAccount.id)
 
   const ParentBoard = () => {
     return (
@@ -240,6 +242,7 @@ const Navbar = () => {
 
   return (
     <header className="header">
+      <WebsocketListener cartAccount={cartAccount} />
       {/* Dektop language and currency selection */}
       <div className="desktop_only_flex font-inter text-sm text-white">
         <div className='flex items-center'>

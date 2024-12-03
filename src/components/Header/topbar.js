@@ -13,7 +13,6 @@ import AlgoliaInstantSearch from '../AlgoliaInstantSearch/AlgoliaInstantSearch';
 import { useLocation } from "react-router-dom";
 import { useLanguage } from 'context/language-provider'
 import TopNavigation from 'components/Content/TopNavigation'
-import WebsocketListener from 'components/Websocket/Websocket';
 
 const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
   const { currentLanguage } = useLanguage()
@@ -59,7 +58,6 @@ const MegaNav = ({ showMegaMenuContent, setShowMegaMenuContent }) => {
         </button>
       ): <></> )}
       <TopNavigation locale={currentLanguage} />
-      <WebsocketListener authPassword="Emporix_11_Webhook_Relay" />
 
       {showMegaMenuContent ? (
         <div
