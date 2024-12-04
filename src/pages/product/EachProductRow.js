@@ -55,7 +55,7 @@ const EachProductRow = ({ item, type, available, rating, productCount }) => {
               : 'text-primaryBlue font-inter font-bold text-xs float-right mb-14'
           }
         >
-          {available ? 'In Stock' : 'Out Of Stock'}
+          {available ? 'In Stock' : ''}
         </div>
         <img src={trimImage(`${imageSrc}`, 200, 150)} className="self-center" />
       </div>

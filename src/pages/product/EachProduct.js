@@ -36,7 +36,7 @@ const EachProduct = ({ item, available, rating, productCount }) => {
               'text-limeGreen font-inter text-[14px]/[20px] font-medium float-right lg:float-none'
             }
           >
-            {available ? 'In Stock' : 'Out Of Stock'}
+            {available ? 'In Stock' : ''}
           </div>
         )}
         <div className="flex h-5 float-right lg:float-none">
