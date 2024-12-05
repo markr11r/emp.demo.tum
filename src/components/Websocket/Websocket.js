@@ -40,7 +40,8 @@ const TestSocketIO = ({ cartAccount }) => {
     });
 
     // Connect to the second webhook
-    const socket2 = io("https://emporix-webhook-relay-nicolas6300.replit.app/ws/f3a993ec-02e6-42c3-b95b-9d1138ea600b");
+    //const socket2 = io("https://emporix-webhook-relay-nicolas6300.replit.app/ws/f3a993ec-02e6-42c3-b95b-9d1138ea600b");
+    const socket2 = io("https://emporix-webhook-relay-nicolas6300.replit.app/ws/1ac18350-1eeb-4fdf-8992-945885468a8c");
 
     socket2.on("connect", () => {
       console.log("Connected to second webhook:", socket2.id);
