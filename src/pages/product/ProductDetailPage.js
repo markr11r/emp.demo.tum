@@ -505,7 +505,6 @@ const ProductDetailsTabContent = ({ product }) => {
     Object.keys(items).forEach((key) => {
       let value = items[key]
       let caption = getFeatureName(key)
-      console.log('CAPTION: ' + caption)
       if (caption === 'Characteristics') {caption = <ProductCharacteristics data={items} language={currentLanguage} />}
       else if (caption === 'Promotions' || caption === 'Campaigns') { caption = ' ' }
       else if (typeof value !== 'object') caption = caption = <ProductBasicCharacteristics caption={caption} value={value} />
