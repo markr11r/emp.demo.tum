@@ -3,6 +3,7 @@ import { createClient } from "contentful";
 import { homeUrl } from '../../services/service.config'
 import { useSites } from 'context/sites-provider'
 import { TENANT } from '../../constants/localstorage'
+import './Logo.css'
 
 const Logo = () => {
     const [logoUrl, setLogoUrl] = useState(null);
@@ -55,7 +56,7 @@ const Logo = () => {
     }
 
     return (
-        <a href={homeUrl()} className="flex">
+        <a href={homeUrl()} className="flex logo">
             <img src={`https:${logoUrl}`} alt={`${tenant} logo`} />
         </a>)
 };
