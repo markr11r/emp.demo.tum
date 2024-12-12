@@ -507,11 +507,13 @@ const ProductDetailsTabContent = ({ product }) => {
       let caption = getFeatureName(key)
       if (caption === 'Characteristics') {caption = <ProductCharacteristics data={items} language={currentLanguage} />}
       else if (caption === 'Promotions' || caption === 'Campaigns') { caption = ' ' }
-      else if (typeof value !== 'object') caption = caption = <ProductBasicCharacteristics caption={caption} value={value} />
-      else if ('value' in value && 'uom' in value)
-        value = value['value'] + ' ' + value['uom']
-      else value = ''
-      res.push({ property: caption, value: ' ' })
+      else if (typeof value !== 'object') caption = <ProductBasicCharacteristics caption={caption} value={value} />
+      //else if ('value' in value && 'uom' in value)
+        //value = value['value'] + ' ' + value['uom']
+      else caption = '';
+      if (caption !== '') { 
+        res.push({ property: caption, value: ' ' })
+      }
     })
     return res
   }
