@@ -50,9 +50,8 @@ const Hit = ({ hit }) => {
     const { currentLanguage } = useLanguage()
     const { activeCurrency } = useCurrency()
     const tenant = localStorage.getItem(TENANT)
-    console.log(activeCurrency)
 
-    const priceEntry = hit.prices?.find((entry) => entry.currency === "EUR");
+    const priceEntry = hit.prices?.find((entry) => entry.currency === activeCurrency?.code);
     const price = priceEntry?.tierValues?.[0]?.priceValue || "Price not available";
     const currency = activeCurrency?.symbol || "Currency not available";
     const pdpUrl = '/' + tenant + '/product/details/' + extractProductIDfromObjectID(hit.objectID)
@@ -92,7 +91,7 @@ const FullPageSearch = () => {
                 </div>
 
                 {/* "Did You Mean?" */}
-                <DidYouMean searchResults={searchState?.results} refine={(query) => setSearchState({ ...searchState, query })} />
+                {/* <DidYouMean searchResults={searchState?.results} refine={(query) => setSearchState({ ...searchState, query })} /> */}
 
                 {/* Sorting Dropdown */}
                 <div className="sort-bar">
@@ -119,6 +118,7 @@ const FullPageSearch = () => {
                             <RatingMenu attribute="mixins.reviews.score" refine="true" />
                         </div>
                         
+                        {/*}
                         <h4>Sales Promotions</h4>
                         <RefinementList attribute="mixins.Characteristics.promotions" />
 
@@ -127,6 +127,7 @@ const FullPageSearch = () => {
 
                         <h4>Brand</h4>
                         <RefinementList attribute="brand" />
+                        */}
                     </div>
 
                     {/* Results */}
