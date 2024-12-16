@@ -32,7 +32,7 @@ export const getCompanies = async () => {
     headers,
   })
   return res?.data?.map((company)=>{
-    return {id:company.id,name:company.name, addresses:company.entitiesAddresses, erpData:company.mixins.erpData}
+    return {id:company.id,name:company.name, addresses:company.entitiesAddresses, erpData:company?.mixins?.erpData}
   })
 }
 

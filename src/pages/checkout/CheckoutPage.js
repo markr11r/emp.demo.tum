@@ -510,13 +510,21 @@ const CheckoutPage = () => {
       const headers = {
         Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`
       }
-      const res = await api.post(`${approvalPermitted()}`, body, { headers })
-      setApprovalNeeded(!res.data.permitted)
+      try {
+        const res = await api.post(`${approvalPermitted()}`, body, { headers })
+        setApprovalNeeded(!res.data.permitted)
 
-      if (!res.data.permitted) {
-        const approversResponse = await api.post(`${approvalApprovers()}`, body, { headers })
-        setApprovers(approversResponse.data)
+        if (!res.data.permitted) {
+          const approversResponse = await api.post(`${approvalApprovers()}`, body, { headers })
+          setApprovers(approversResponse.data)
+        }
       }
+      catch {
+          console.log('ERROR LINES 514/515 in CheckoutPage.js')
+      }
+      
+
+      
 
     })()
   }, [cartAccount])
