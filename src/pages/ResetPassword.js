@@ -8,7 +8,7 @@ import { Heading2, Heading4 } from '../components/Utilities/typography'
 import Box from '@mui/material/Box'
 import { homeUrl, signupUrl } from '../services/service.config'
 import { TENANT } from '../constants/localstorage'
-import { Logo } from '../components/Logo'
+import Logo from '../components/Content/Logo'
 import { LargePrimaryButton } from 'components/Utilities/button'
 import { resetPassword } from 'services/customer.service'
 

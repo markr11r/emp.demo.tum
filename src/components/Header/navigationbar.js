@@ -30,6 +30,7 @@ import { useContentful } from '../../context/contentful-provider'
 import { useCart } from 'context/cart-provider'
 import { useCurrency } from 'context/currency-context'
 import WebsocketListener from 'components/Websocket/Websocket';
+import Logo from 'components/Content/Logo'
 
 const Navbar = () => {
   const { userTenant: tenant } = useAuth()
@@ -394,9 +395,8 @@ const Navbar = () => {
           <div className="h-10 justify-between flex">
             <div className="flex">
               <Link to={loginUrl()} className="flex">
-                <img src="/atom.png" className="w-[37px]"></img>
+                <Logo />
                 <div className="px-4 text-[25px] font-medium items-center">
-                  <span>{fields.companyNameLabel}</span>
                 </div>
               </Link>
             </div>
@@ -411,10 +411,7 @@ const Navbar = () => {
 
       <div className="mobile_only_flex text-white">
         <Link to={homeUrl()} className="flex">
-          <img src="/atom.png"></img>
-          <p className="font-medium text-xl px-3 pt-1">
-            {fields.companyNameLabel}
-          </p>
+        <Logo />
         </Link>
       </div>
 

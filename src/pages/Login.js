@@ -15,7 +15,7 @@ import Box from '@mui/material/Box'
 import { homeUrl, signupUrl } from '../services/service.config'
 import { useAuth } from 'context/auth-provider'
 import { TENANT } from '../constants/localstorage'
-import { Logo } from '../components/Logo'
+import Logo from '../components/Content/Logo'
 import './login.css'
 
 const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN
