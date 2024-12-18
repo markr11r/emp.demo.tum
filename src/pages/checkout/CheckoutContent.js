@@ -182,6 +182,7 @@ const ShippingContent = () => {
                       key={method.id}
                       radioKey={method.id}
                       shippingmode={method.id}
+                      shippingMethodName={method.name}
                       date="Monday, June 6 - Tuesday June 7"
                       price={
                         method.fee === 0 ? (

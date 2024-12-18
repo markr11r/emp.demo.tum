@@ -6,10 +6,12 @@ import DeliveryWindow from './DeliveryWindow'
 import { useUserAddress } from 'pages/checkout/AddressProvider'
 import { useSites } from 'context/sites-provider'
 
-const ShippingMethod = ({ radioKey, shippingmode, price, onClick }) => {
+const ShippingMethod = ({ radioKey, shippingmode, price, onClick, shippingMethodName }) => {
   const { radioActive, setRadioActive } = useContext(RadioContext)
   
   const { currentSite } = useSites()
+
+  const methodName = shippingMethodName ? shippingMethodName : shippingmode
 
   const {
     deliveryWindows
@@ -49,7 +51,7 @@ const ShippingMethod = ({ radioKey, shippingmode, price, onClick }) => {
             <RadioItem radioKey={radioKey} />
             <div className="pt-2 md:pt-0 pl-3">
               <div className=" font-bold text-base ">
-                {shippingmode}{' '}
+                {methodName}{' '}
                 <span className="underline font-semibold text-[14px]">+info</span>
               </div>
             </div>
